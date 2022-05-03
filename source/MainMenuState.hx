@@ -116,7 +116,7 @@ class MainMenuState extends MusicBeatState
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
 			// menuItem.scale.x = scale;
 			// menuItem.scale.y = scale;
-			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i], null);
+			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('unselect', optionShit[i] + " unselected", 0, false);
 			menuItem.animation.addByPrefix('select', optionShit[i] + " selected", 0, false);
 			menuItem.animation.play('unselect');
