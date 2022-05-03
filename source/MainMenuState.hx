@@ -68,7 +68,7 @@ class MainMenuState extends MusicBeatState
 		FlxCamera.defaultCameras = [camGame];
 		
 		if(isSecretMenu){
-			optionShit.push('secret');
+			optionShit.insert(4, 'secret');
 		}
 
 		transIn = FlxTransitionableState.defaultTransIn;
