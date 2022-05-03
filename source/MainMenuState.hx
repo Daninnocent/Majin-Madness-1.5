@@ -117,9 +117,9 @@ class MainMenuState extends MusicBeatState
 			menuItem.scale.x = scale;
 			menuItem.scale.y = scale;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
-			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
-			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
-			menuItem.animation.play('idle');
+			menuItem.animation.addByPrefix('unselect', optionShit[i] + " unselected", 24);
+			menuItem.animation.addByPrefix('select', optionShit[i] + " selected", 24);
+			menuItem.animation.play('unselect');
 			menuItem.ID = i;
 			menuItem.screenCenter(X);
 			menuItems.add(menuItem);
@@ -285,12 +285,12 @@ class MainMenuState extends MusicBeatState
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
-			spr.animation.play('idle');
+			spr.animation.play('unselect');
 			spr.updateHitbox();
 
 			if (spr.ID == curSelected)
 			{
-				spr.animation.play('selected');
+				spr.animation.play('select');
 				var add:Float = 0;
 				if(menuItems.length > 4) {
 					add = menuItems.length * 8;
