@@ -32,6 +32,8 @@ class MainMenuState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	
+	public static var isSecretMenu:Bool = false;
+	
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
@@ -64,6 +66,10 @@ class MainMenuState extends MusicBeatState
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camAchievement);
 		FlxCamera.defaultCameras = [camGame];
+		
+		if(isSecretMenu){
+			optionShit.push('secret');
+		}
 
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
