@@ -12,6 +12,8 @@ import flixel.math.FlxPoint;
 import flixel.addons.display.FlxBackdrop;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
+import flixel.text.FlxText;
+import flixel.util.FlxColor;
 
 class MajinMenu extends MusicBeatState {
     public static var curSelected:Int = 0;
@@ -24,6 +26,8 @@ class MajinMenu extends MusicBeatState {
     ];
     var menuItemsArray:Array<FlxSprite>;
     var pos:FlxPoint = new FlxPoint();
+
+    public static var versionOfMajin:String = '2.0';
 
     public static var isSecretMenu:Bool = false;
 
@@ -69,6 +73,18 @@ class MajinMenu extends MusicBeatState {
         }
         changeSelection();
         super.create();
+
+	var majinVersion:FlxText = new FlxText(5, FlxG.height - 44, 0, '', 12);
+        majinVersion.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        majinVersion.borderQuality = 1;
+        majinVersion.borderSize = 1.50;
+        add(majinVersion);
+
+        #if sys
+        var deviceName:String = Sys.systemName();
+        #end
+
+        majinVersion.text += 'Majin Madness v' + versionOfMajin + '\n' + deviceName + ' Release\n';
     }
 
     override function update(elapsed:Float) {
