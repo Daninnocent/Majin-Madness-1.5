@@ -1,68 +1,68 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
-				273,
-				190
+				222,
+				10
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "idle",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				388,
-				563
-			],
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "down",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				695,
-				378
-			],
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "left",
-			"indices": []
+			"indices": [],
+			"name": "left"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				117,
-				544
+				50,
+				-60
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "right",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				503,
-				409
+				114,
+				10
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				40,
+				-33
+			],
+			"loop": false,
 			"fps": 24,
-			"name": "up",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": true,
+			"name": "idle"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/majinsonic",
 	"position": [
-		30,
-		50
+		-160,
+		-10
 	],
-	"healthicon": "majin",
+	"healthicon": "icon-majin",
 	"flip_x": false,
 	"healthbar_colors": [
 		0,
@@ -70,8 +70,8 @@
 		140
 	],
 	"camera_position": [
-		-470,
-		-240
+		100,
+		0
 	],
 	"sing_duration": 6.1,
 	"scale": 1
