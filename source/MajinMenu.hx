@@ -78,8 +78,8 @@ class MajinMenu extends MusicBeatState {
         }
 
         if(bg2.alpha == 0.5){
-            FlxTween.tween(bg2, {alpha: 0}, 3, {ease: FlxEase.circOut});
             FlxTween.tween(bg, {alpha: 0.5}, 3, {ease: FlxEase.circOut});
+            FlxTween.tween(bg2, {alpha: 0}, 3, {ease: FlxEase.circOut});
         }
 
         if(!flickMenus){
