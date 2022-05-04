@@ -2,6 +2,6 @@
 <TextureAtlas imagePath="menu_story_mode.png">
 	<!-- Created with Adobe Animate version 21.0.6.41649 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="story unselected0000" x="118" y="42" width="907" height="157"/>
-	<SubTexture name="story selected0000" x="90" y="212" width="938" height="157"/>
+	<SubTexture name="story_mode unselected0000" x="118" y="42" width="907" height="157"/>
+	<SubTexture name="story_mode selected0000" x="90" y="212" width="938" height="157"/>
 </TextureAtlas>
