@@ -50,6 +50,7 @@ class MajinMenu extends MusicBeatState {
             // menuItem.offset.x = -Math.round(FlxG.width / 8);
             menuItem.setGraphicSize(Std.int(menuItem.width * 0.7));
             menuItem.updateHitbox();
+	    menuItem.antialiasing = ClientPrefs.globalAntialiasing;
             menuItemsArray.push(menuItem);
             add(menuItem);
         }
