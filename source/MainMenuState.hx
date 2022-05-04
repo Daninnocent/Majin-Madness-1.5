@@ -121,7 +121,10 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('select', optionShit[i] + " selected", 0, false);
 			menuItem.animation.play('unselect');
 			menuItem.ID = i;
-			menuItems.offset.x = -Math.round(FlxG.width / 8); // general offset
+			// menuItems.offset.x = -Math.round(FlxG.width / 8); // general offset
+
+			// this won't compile -Daninnocent
+
 			// menuItem.screenCenter(X);
 			menuItems.add(menuItem);
 			// var scr:Float = (optionShit.length - 4) * 0.135;
@@ -219,45 +222,45 @@ class MainMenuState extends MusicBeatState
 
  					// if(ClientPrefs.flashing) FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 
-					for (item in menuItems.members)
-					{
-						if (curSelected != item.ID)
-						{
-							FlxTween.tween(spr, {alpha: 0}, 0.4, {
-								ease: FlxEase.quadOut,
-								onComplete: function(twn:FlxTween)
-								{
-									item.kill();
-								}
-							});
-							continue;
-						}
-						else
-						{
-							FlxFlicker.flicker(item, 1, 0.06, false, false, function(flick:FlxFlicker)
-							{
-								var daChoice:String = optionShit[curSelected];
+					// menuItems.forEach(function(spr:FlxSprite) // this gonna be unused anyways
+					// {
+					// 	if (curSelected != item.ID)
+					// 	{
+					// 		FlxTween.tween(spr, {alpha: 0}, 0.4, {
+					// 			ease: FlxEase.quadOut,
+					// 			onComplete: function(twn:FlxTween)
+					// 			{
+					// 				item.kill();
+					// 			}
+					// 		});
+					// 		continue;
+					// 	}
+					// 	else
+					// 	{
+					// 		FlxFlicker.flicker(item, 1, 0.06, false, false, function(flick:FlxFlicker)
+					// 		{
+					// 			var daChoice:String = optionShit[curSelected];
 
-								switch (daChoice)
-								{
-									case 'story_mode':
-										MusicBeatState.switchState(new StoryMenuState());
-									case 'freeplay':
-										MusicBeatState.switchState(new FreeplayState());
-									// #if MODS_ALLOWED
-									// case 'mods':
-									//	MusicBeatState.switchState(new ModsMenuState());
-									// #end
-									case 'awards':
-										MusicBeatState.switchState(new AchievementsMenuState());
-									// case 'credits':
-									//	MusicBeatState.switchState(new CreditsState());
-									case 'options':
-										LoadingState.loadAndSwitchState(new options.OptionsState());
-								}
-							});
-						}
-					}
+					// 			switch (daChoice)
+					// 			{
+					// 				case 'story_mode':
+					// 					MusicBeatState.switchState(new StoryMenuState());
+					// 				case 'freeplay':
+					// 					MusicBeatState.switchState(new FreeplayState());
+					// 				// #if MODS_ALLOWED
+					// 				// case 'mods':
+					// 				//	MusicBeatState.switchState(new ModsMenuState());
+					// 				// #end
+					// 				case 'awards':
+					// 					MusicBeatState.switchState(new AchievementsMenuState());
+					// 				// case 'credits':
+					// 				//	MusicBeatState.switchState(new CreditsState());
+					// 				case 'options':
+					// 					LoadingState.loadAndSwitchState(new options.OptionsState());
+					// 			}
+					// 		});
+					// 	}
+					// });
 				}
 			}
 			#if desktop

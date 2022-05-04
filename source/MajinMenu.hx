@@ -9,6 +9,9 @@ import flixel.effects.FlxFlicker;
 import flixel.tweens.FlxTween.tween;
 import flixel.tweens.FlxEase.quadOut;
 import flixel.math.FlxPoint;
+import flixel.addons.display.FlxBackdrop;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 
 class MajinMenu extends MusicBeatState {
     public static var curSelected:Int = 0;
@@ -26,16 +29,26 @@ class MajinMenu extends MusicBeatState {
 
     var flickMenus = false;
 
+    var bg:FlxBackdrop;
+    var bg2:FlxBackdrop;
+
     override function create() {
         #if desktop
         DiscordClient.changePresence('In Majin Menu...', null);
         #end
-        var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBG'));
-		bg.setGraphicSize(Std.int(bg.width * 1.1));
+		bg = new FlxBackdrop(Paths.image('bluestuff'), 0.2, 0, true, true);
+		bg.velocity.set(200, 110);
 		bg.updateHitbox();
-		bg.screenCenter();
-		bg.antialiasing = ClientPrefs.globalAntialiasing;
+		bg.alpha = 0.5;
+		bg.screenCenter(X);
 		add(bg);
+
+        bg2 = new FlxBackdrop(Paths.image('purplestuff'), 0.2, 0, true, true);
+		bg2.velocity.set(200, 110);
+		bg2.updateHitbox();
+		bg2.alpha = 0;
+		bg2.screenCenter(X);
+		add(bg2);
         if(isSecretMenu && majinMenu != null){ // secret menu thing
             majinMenu.insert(4, 'secret');
         }
@@ -50,6 +63,7 @@ class MajinMenu extends MusicBeatState {
             // menuItem.offset.x = -Math.round(FlxG.width / 8);
             menuItem.setGraphicSize(Std.int(menuItem.width * 0.7));
             menuItem.updateHitbox();
+            menuItem.antialiasing = ClientPrefs.globalAntialiasing;
             menuItemsArray.push(menuItem);
             add(menuItem);
         }
@@ -58,6 +72,16 @@ class MajinMenu extends MusicBeatState {
     }
 
     override function update(elapsed:Float) {
+        if(bg.alpha == 0.5){
+            FlxTween.tween(bg, {alpha: 0}, 3, {ease: FlxEase.circOut});
+            FlxTween.tween(bg2, {alpha: 0.5}, 3, {ease: FlxEase.circOut});
+        }
+
+        if(bg2.alpha == 0.5){
+            FlxTween.tween(bg2, {alpha: 0}, 3, {ease: FlxEase.circOut});
+            FlxTween.tween(bg, {alpha: 0.5}, 3, {ease: FlxEase.circOut});
+        }
+
         if(!flickMenus){
             if (controls.UI_UP_P) {
                 changeSelection(-1);
