@@ -29,7 +29,7 @@ class MajinMenu extends MusicBeatState {
 
     public static var versionOfMajin:String = '2.0';
 
-    public static var isSecretMenu:Bool = false;
+    // public static var isSecretMenu:Bool = false;
 
     var flickMenus = false;
 
@@ -53,8 +53,10 @@ class MajinMenu extends MusicBeatState {
 		bg2.alpha = 0;
 		bg2.screenCenter(X);
 		add(bg2);
-        if(isSecretMenu && majinMenu != null){ // secret menu thing
-            majinMenu.insert(4, 'secret');
+        if(!FlxG.save.data.majinweekdone && majinMenu != null){ // secret menu thing
+            majinMenu.insert(5, 'secret');
+        } else if (FlxG.save.data.majinweekdone && majinMenu != null) {
+            majinMenu.insert(5, 'extras');
         }
         if (menuItemsArray == null) menuItemsArray = [];
         for (i in 0...majinMenu.length) {
@@ -112,14 +114,18 @@ class MajinMenu extends MusicBeatState {
                 FlxG.sound.play(Paths.sound('cancelMenu'));
             }
             if (controls.ACCEPT) {
-                flickMenus = true;
-                FlxG.sound.play(Paths.sound('confirmMenu'));
-                for(item in menuItemsArray){
-                    if(item.ID == curSelected){
-                        FlxFlicker.flicker(item, 1, 0.06, false, true, function(_) onSwitchState());
-                    } else {
-                        tween(item, {alpha: 0}, 0.4, {ease: quadOut, onComplete: function(_) item.kill()});
-                        continue;
+                if(majinMenu[curSelected] == 'secret'){
+                    FlxG.sound.play(Paths.sound('clickText'));
+                } else {
+                    flickMenus = true;
+                    FlxG.sound.play(Paths.sound('confirmMenu'));
+                    for(item in menuItemsArray){
+                        if(item.ID == curSelected){
+                            FlxFlicker.flicker(item, 1, 0.06, false, true, function(_) onSwitchState());
+                        } else {
+                            tween(item, {alpha: 0}, 0.4, {ease: quadOut, onComplete: function(_) item.kill()});
+                            continue;
+                        }
                     }
                 }
             }
@@ -140,6 +146,8 @@ class MajinMenu extends MusicBeatState {
                 FlxG.switchState(new AchievementsMenuState());
             case 'options':
                 FlxG.switchState(new options.OptionsState());
+            case 'extras':
+                FlxG.switchState(new SecretMenu());
         }
         flickMenus = false;
     }

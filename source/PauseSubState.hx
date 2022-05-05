@@ -253,6 +253,8 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.seenCutscene = false;
 					if(PlayState.isStoryMode) {
 						MusicBeatState.switchState(new StoryMenuState());
+					} else if (PlayState.isSecret) {
+						MusicBeatState.switchState(new SecretMenu());
 					} else {
 						MusicBeatState.switchState(new FreeplayState());
 					}
