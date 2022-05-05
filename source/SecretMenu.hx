@@ -93,15 +93,15 @@ class SecretMenu extends MusicBeatState
 
         if(FlxG.keys.justPressed.ENTER){
             switch(daSecret.toLowerCase()){
-                // case "insertrandomshithere":
-                //     PlayState.isStoryMode = false;
-                //     PlayState.isSecret = true;
-                //     PlayState.storyPlaylist = ['starlight'];
-                //     PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
-                //     FlxG.sound.music.stop();
-                //     LoadingState.loadAndSwitchState(new PlayState());
-                // case "thesenuts":
-                //     trace('these nuts on yo face lmao gottem!!!');
+                case "insertrandomshithere":
+                    PlayState.isStoryMode = false;
+                    PlayState.isSecret = true;
+                    PlayState.storyPlaylist = ['starlight'];
+                    PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+                    FlxG.sound.music.stop();
+                    LoadingState.loadAndSwitchState(new PlayState());
+                case "thesenuts":
+                    trace('these nuts on yo face lmao gottem!!!');
                 default:
                     FlxG.sound.play(Paths.sound('clickText'));
                     trace('sorry bro but thats invalid');
