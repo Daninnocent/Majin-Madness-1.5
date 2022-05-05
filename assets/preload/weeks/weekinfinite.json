@@ -10,6 +10,7 @@
 	"weekBefore": "tutorial",
 	"startUnlocked": true,
 	"hideStoryMode": false,
+        "difficulties": "fun",
 	"weekCharacters": [
 		"",
 		"",
@@ -17,7 +18,7 @@
 	],
 	"songs": [
 		[
-			"countless",
+			"Countless",
 			"icon-majin",
 			[
 				75,
@@ -26,7 +27,16 @@
 			]
 		],
 		[
-			"entertainment",
+			"Entertainment",
+			"icon-majin",
+			[
+				75,
+				80,
+				255
+			]
+		],
+		[
+			"Collision Chaos",
 			"icon-majin",
 			[
 				75,
