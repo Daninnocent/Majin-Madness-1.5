@@ -3230,6 +3230,16 @@ class PlayState extends MusicBeatState
                         FlxG.save.data.majinweekdone = true;
 					}
 
+					if(curSong == 'starlight')
+					{
+                        FlxG.save.data.beatenStarlight = true;
+					}
+
+					if(curSong == 'reflection')
+					{
+                        FlxG.save.data.beatenReflection = true;
+					}
+
 					// if ()
 					if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {
 						StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);

@@ -50,6 +50,8 @@ import sys.io.File;
 import sys.FileSystem;
 import flash.media.Sound;
 #end
+import lime.app.Application;
+import flash.system.System;
 
 using StringTools;
 
@@ -194,6 +196,7 @@ class ChartingState extends MusicBeatState
 	public static var curQuant = 0;
 	var text:String = "";
 	public static var vortex:Bool = false;
+
 	override function create()
 	{
 		if (PlayState.SONG != null)
@@ -1942,6 +1945,21 @@ class ChartingState extends MusicBeatState
 			}
 		}
 		lastConductorPos = Conductor.songPosition;
+
+		if(!FlxG.save.data.beatenStarlight){
+		if (_song.song.toLowerCase() == 'starlight'){
+			Application.current.window.alert("NO CHEATING", "NO CHEATING");
+			System.exit(0);
+		}
+	    }
+
+		if(!FlxG.save.data.beatenReflection){
+		if (_song.song.toLowerCase() == 'reflection'){
+			Application.current.window.alert("NO CHEATING", "NO CHEATING");
+			System.exit(0);
+		}
+	    }
+
 		super.update(elapsed);
 	}
 

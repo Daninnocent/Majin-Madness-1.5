@@ -138,7 +138,7 @@ class SecretMenu extends MusicBeatState
                 //     });
                 // case "thesenuts":
                 //     trace('these nuts on yo face lmao gottem!!!');
-                case "mjboy":
+                case "mjnboy":
                     stopfuckingspamming = true;
                     flashyWashy(true);
                     PlayState.isStoryMode = false;
@@ -150,7 +150,20 @@ class SecretMenu extends MusicBeatState
                     FlxTransitionableState.skipNextTransOut = true;
                     new FlxTimer().start(2, function(tmr:FlxTimer){
                         LoadingState.loadAndSwitchState(new PlayState());
-                });
+                    });
+                case "starlight":
+                    stopfuckingspamming = true;
+                    flashyWashy(true);
+                    PlayState.isStoryMode = false;
+                    PlayState.isSecret = true;
+                    PlayState.storyPlaylist = ['starlight'];
+                    PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+                    FlxG.sound.music.stop();
+                    FlxTransitionableState.skipNextTransIn = true;
+                    FlxTransitionableState.skipNextTransOut = true;
+                    new FlxTimer().start(2, function(tmr:FlxTimer){
+                        LoadingState.loadAndSwitchState(new PlayState());
+                    });
                 case "damnhottie":
                     FlxG.sound.music.stop();
                     stopfuckingspamming = true;
@@ -224,6 +237,23 @@ class SecretMenu extends MusicBeatState
                     flashyWashy(true);
                     new FlxTimer().start(2, function(tmr:FlxTimer){
                         video = new FlxVideo(Paths.video('freddy_fatass_beatbox'));
+                        
+                        (video).finishCallback = function() {
+                            FlxG.sound.playMusic(Paths.music('freakyMenu'));
+                            LoadingState.loadAndSwitchState(new SecretMenu());
+                        }
+                    });
+                    new FlxTimer().start(2.1, function(tmr:FlxTimer)
+                    {
+                        invideomemes = true;
+                        inmemes = true;
+                    });
+                 case "ldxmjin":
+                    FlxG.sound.music.stop();
+                    stopfuckingspamming = true;
+                    flashyWashy(true);
+                    new FlxTimer().start(2, function(tmr:FlxTimer){
+                        video = new FlxVideo(Paths.video('ballsssss'));
                         
                         (video).finishCallback = function() {
                             FlxG.sound.playMusic(Paths.music('freakyMenu'));
