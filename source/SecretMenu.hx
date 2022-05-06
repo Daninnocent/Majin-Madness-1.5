@@ -138,6 +138,19 @@ class SecretMenu extends MusicBeatState
                 //     });
                 // case "thesenuts":
                 //     trace('these nuts on yo face lmao gottem!!!');
+                case "mjboy":
+                    stopfuckingspamming = true;
+                    flashyWashy(true);
+                    PlayState.isStoryMode = false;
+                    PlayState.isSecret = true;
+                    PlayState.storyPlaylist = ['reflection'];
+                    PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + '-fun', PlayState.storyPlaylist[0].toLowerCase());
+                    FlxG.sound.music.stop();
+                    FlxTransitionableState.skipNextTransIn = true;
+                    FlxTransitionableState.skipNextTransOut = true;
+                    new FlxTimer().start(2, function(tmr:FlxTimer){
+                        LoadingState.loadAndSwitchState(new PlayState());
+                });
                 case "damnhottie":
                     FlxG.sound.music.stop();
                     stopfuckingspamming = true;
@@ -194,6 +207,40 @@ class SecretMenu extends MusicBeatState
                     flashyWashy(true);
                     new FlxTimer().start(2, function(tmr:FlxTimer){
                         video = new FlxVideo(Paths.video('majin roasts tf out of xeno'));
+                        
+                        (video).finishCallback = function() {
+                            FlxG.sound.playMusic(Paths.music('freakyMenu'));
+                            LoadingState.loadAndSwitchState(new SecretMenu());
+                        }
+                    });
+                    new FlxTimer().start(2.1, function(tmr:FlxTimer)
+                    {
+                        invideomemes = true;
+                        inmemes = true;
+                    });
+                 case "freddyfatass":
+                    FlxG.sound.music.stop();
+                    stopfuckingspamming = true;
+                    flashyWashy(true);
+                    new FlxTimer().start(2, function(tmr:FlxTimer){
+                        video = new FlxVideo(Paths.video('freddy_fatass_beatbox'));
+                        
+                        (video).finishCallback = function() {
+                            FlxG.sound.playMusic(Paths.music('freakyMenu'));
+                            LoadingState.loadAndSwitchState(new SecretMenu());
+                        }
+                    });
+                    new FlxTimer().start(2.1, function(tmr:FlxTimer)
+                    {
+                        invideomemes = true;
+                        inmemes = true;
+                    });
+                 case "whenthe":
+                    FlxG.sound.music.stop();
+                    stopfuckingspamming = true;
+                    flashyWashy(true);
+                    new FlxTimer().start(2, function(tmr:FlxTimer){
+                        video = new FlxVideo(Paths.video('ok its'));
                         
                         (video).finishCallback = function() {
                             FlxG.sound.playMusic(Paths.music('freakyMenu'));
