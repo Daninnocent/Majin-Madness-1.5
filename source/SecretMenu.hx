@@ -40,6 +40,8 @@ import openfl.utils.ByteArray;
 import openfl.utils.Assets as OpenFlAssets;
 import lime.media.AudioBuffer;
 import flash.geom.Rectangle;
+import flixel.addons.transition.FlxTransitionableState;
+import flixel.util.FlxTimer;
 import flixel.util.FlxSort;
 #if MODS_ALLOWED
 import sys.io.File;
@@ -52,17 +54,45 @@ using StringTools;
 class SecretMenu extends MusicBeatState
 {
     var secretText:FlxUIInputText;
+    var enteracodebitch:FlxText;
+    var stuff:FlxSprite;
+    var bg:FlxSprite;
+    var whiteshit:FlxSprite;
+    var video:FlxVideo;
 
     var daSecret:String = "";
 
+    var inmemes:Bool = false;
+    var invideomemes:Bool = false;
+
+    var stopfuckingspamming:Bool = false;
+
     override function create()
     {
+        whiteshit = new FlxSprite().makeGraphic(1280, 720, FlxColor.WHITE);
+        whiteshit.alpha = 0;
+        stuff = new FlxSprite();
+
+        bg = new FlxSprite().loadGraphic(Paths.image('funisinfinite'));
+		add(bg);
+
+        enteracodebitch = new FlxText(0, 300, FlxG.width, "ENTER A CODE", 100);
+        enteracodebitch.setFormat(Paths.font("needlemouse-serif.ttf"), 100, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        enteracodebitch.screenCenter(X);
+        add(enteracodebitch);
 
         secretText = new FlxUIInputText(0, 500, 300, daSecret, 20);
         secretText.screenCenter(X);
         add(secretText);
 
         FlxG.mouse.visible = true;
+
+        stuff.visible = false;
+        add(stuff);
+
+        add(whiteshit);
+
+        
 
         super.create();
     }
@@ -86,30 +116,125 @@ class SecretMenu extends MusicBeatState
 		}
 
         if(!blockkeys){
-            if(controls.BACK){
+            if(controls.BACK && !stopfuckingspamming){
                 MusicBeatState.switchState(new MajinMenu());
             }
         }
 
-        if(FlxG.keys.justPressed.ENTER){
+        if(FlxG.keys.justPressed.ENTER && !inmemes && !stopfuckingspamming){
             switch(daSecret.toLowerCase()){
-                case "insertrandomshithere":
-                    PlayState.isStoryMode = false;
-                    PlayState.isSecret = true;
-                    PlayState.storyPlaylist = ['starlight'];
-                    PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+                // case "insertrandomshithere":
+                //     stopfuckingspamming = true;
+                //     flashyWashy(true);
+                //     PlayState.isStoryMode = false;
+                //     PlayState.isSecret = true;
+                //     PlayState.storyPlaylist = ['starlight'];
+                //     PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+                //     FlxG.sound.music.stop();
+                //     FlxTransitionableState.skipNextTransIn = true;
+                //     FlxTransitionableState.skipNextTransOut = true;
+                //     new FlxTimer().start(2, function(tmr:FlxTimer){
+                //         LoadingState.loadAndSwitchState(new PlayState());
+                //     });
+                // case "thesenuts":
+                //     trace('these nuts on yo face lmao gottem!!!');
+                case "damnhottie":
                     FlxG.sound.music.stop();
-                    LoadingState.loadAndSwitchState(new PlayState());
-                case "thesenuts":
-                    trace('these nuts on yo face lmao gottem!!!');
+                    stopfuckingspamming = true;
+                    flashyWashy(true);
+                    new FlxTimer().start(2, function(tmr:FlxTimer){
+                        enteracodebitch.visible = false;
+                        bg.visible = false;
+                        stuff.visible = true;
+                        stuff.loadGraphic(Paths.image('sus/Thats sus bro'));
+                        stuff.setPosition(0, 300);
+                        stuff.screenCenter(X);
+                        flashyWashy(false);
+                    });
+                    new FlxTimer().start(2.1, function(tmr:FlxTimer)
+                    {
+                        inmemes = true;
+                    });
+                case "start running":
+                    FlxG.sound.music.stop();
+                    stopfuckingspamming = true;
+                    flashyWashy(true);
+                    new FlxTimer().start(2, function(tmr:FlxTimer){
+                        stuff.visible = true;
+                        stuff.loadGraphic(Paths.image('sus/start running'));
+                        stuff.setPosition(0, 110);
+                        stuff.screenCenter(X);
+                        stuff.setGraphicSize(1280,720);
+                        flashyWashy(false);
+                    });
+                    new FlxTimer().start(2.1, function(tmr:FlxTimer)
+                    {
+                        inmemes = true;
+                    });
+                case "ricefields":
+                    FlxG.sound.music.stop();
+                    stopfuckingspamming = true;
+                    flashyWashy(true);
+                    new FlxTimer().start(2, function(tmr:FlxTimer){
+                        video = new FlxVideo(Paths.video('ricefieldss'));
+                        
+                        (video).finishCallback = function() {
+                            FlxG.sound.playMusic(Paths.music('freakyMenu'));
+                            LoadingState.loadAndSwitchState(new SecretMenu());
+                        }
+                    });
+                    new FlxTimer().start(2.1, function(tmr:FlxTimer)
+                    {
+                        invideomemes = true;
+                        inmemes = true;
+                    });
+                 case "crystalmf":
+                    FlxG.sound.music.stop();
+                    stopfuckingspamming = true;
+                    flashyWashy(true);
+                    new FlxTimer().start(2, function(tmr:FlxTimer){
+                        video = new FlxVideo(Paths.video('majin roasts tf out of xeno'));
+                        
+                        (video).finishCallback = function() {
+                            FlxG.sound.playMusic(Paths.music('freakyMenu'));
+                            LoadingState.loadAndSwitchState(new SecretMenu());
+                        }
+                    });
+                    new FlxTimer().start(2.1, function(tmr:FlxTimer)
+                    {
+                        invideomemes = true;
+                        inmemes = true;
+                    });
                 default:
                     FlxG.sound.play(Paths.sound('clickText'));
                     trace('sorry bro but thats invalid');
             }
         }
 
+        if(FlxG.keys.justPressed.ENTER && stopfuckingspamming && inmemes)
+        {
+            if(invideomemes){
+            video.onVLCComplete();
+            }
+            FlxG.sound.playMusic(Paths.music('freakyMenu'));
+            LoadingState.loadAndSwitchState(new SecretMenu());
+        } 
+
         super.update(elapsed);
     }
+
+    function flashyWashy(a:Bool)
+	{
+		if (a == true)
+		{
+			FlxG.sound.play(Paths.sound('confirmMenu'));
+			FlxTween.tween(whiteshit, {alpha: 1}, 0.4);
+		}
+		else
+			FlxTween.color(whiteshit, 0.1, FlxColor.WHITE, FlxColor.BLUE);
+			FlxTween.tween(whiteshit, {alpha: 0}, 0.2);
+
+	}
 
     override function destroy() {
         FlxG.mouse.visible = false;

@@ -30,6 +30,7 @@ class CreditsState extends MusicBeatState
 	private var creditsStuff:Array<Array<String>> = [];
 
 	var bg:FlxSprite;
+	var bg2:FlxSprite;
 	var descText:FlxText;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
@@ -81,27 +82,87 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['Majin Madness Team'],
+			[''],
+			[''],
+			['Plusardx',		'plusardx',		'Charter																								',							'https://www.youtube.com/channel/UC79hR4wLFO1fORZPaKY1XAw',	'444444'],
+			[''],
+			[''],
+			['Abador',		'abador',		'Charter																								',							'https://www.youtube.com/channel/UCpMviYnJbluA1IfMOcJffDg',	'444444'],
+			[''],
+			[''],
+			['Alberton',		'alberton',		'Animator																								',							'https://www.youtube.com/channel/UCPOB2_LwLkVzFZ-4rXomjWQ',	'444444'],
+			[''],
+			[''],
+			['Miguel',		'miguel',		'Artist/Submitter-or Mod Leader',							'https://www.youtube.com/channel/UCnoahNIYnR8xxX-AsLmwM7g',	'444444'],
+			[''],
+			[''],
+			['Cronix',		'cronix',		'Musician																								',							'https://www.youtube.com/channel/UCWh71odx3b4MnOG2ZrQbh0Q',	'444444'],
+			[''],
+			[''],
+			['VillArts',		'villagerhum',		'Musician																								',							'https://www.youtube.com/channel/UC52QcuYSAdeRks0WtTXSO6A',	'444444'],
+			[''],
+			[''],
+			['Danly',		'danly',		'Musician																								',							'https://www.youtube.com/channel/UCM0BnEgf9acQc64rLqUfZ_A',	'444444'],
+			[''],
+			[''],
+			['Daninnocent',		'daninnocent',		'Coder																								',							'https://www.youtube.com/channel/UCPddB_emjwVerq1RxsJLfDQ',	'444444'],
+			[''],
+			[''],
+			['EnDev',		'endevgtnv',		'Coder																								',							'https://www.youtube.com/channel/UCnw5m41Yud2t7uoI9NXQj2g',	'444444'],
+			[''],
+			[''],
 			['Psych Engine Team'],
+			[''],
+			[''],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',							'https://twitter.com/Shadow_Mario_',	'444444'],
+			[''],
+			[''],
 			['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',						'https://twitter.com/RiverOaken',		'C30085'],
+			[''],
+			[''],
 			['shubs',				'shubs',			'Additional Programmer of Psych Engine',					'https://twitter.com/yoshubs',			'279ADC'],
 			[''],
 			['Former Engine Members'],
+			[''],
+			[''],
 			['bb-panzu',			'bb-panzu',			'Ex-Programmer of Psych Engine',							'https://twitter.com/bbsub3',			'389A58'],
 			[''],
+			[''],
 			['Engine Contributors'],
+			[''],
+			[''],
 			['iFlicky',				'iflicky',			'Composer of Psync and Tea Time\nMade the Dialogue Sounds',	'https://twitter.com/flicky_i',			'AA32FE'],
+			[''],
+			[''],
 			['SqirraRNG',			'gedehari',			'Chart Editor\'s Sound Waveform base',						'https://twitter.com/gedehari',			'FF9300'],
+			[''],
+			[''],
 			['PolybiusProxy',		'polybiusproxy',	'.MP4 Video Loader Extension',								'https://twitter.com/polybiusproxy',	'FFEAA6'],
+			[''],
+			[''],
 			['Keoiki',				'keoiki',			'Note Splash Animations',									'https://twitter.com/Keoiki_',			'FFFFFF'],
+			[''],
+			[''],
 			['Smokey',				'smokey',			'Spritemap Texture Support',								'https://twitter.com/Smokey_5_',		'4D5DBD'],
 			[''],
+			[''],
 			["Funkin' Crew"],
+			[''],
+			[''],
 			['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",						'https://twitter.com/ninja_muffin99',	'F73838'],
+			[''],
+			[''],
 			['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",							'https://twitter.com/PhantomArcade3K',	'FFBB1B'],
+			[''],
+			[''],
 			['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",							'https://twitter.com/evilsk8r',			'53E52C'],
+			[''],
+			[''],
 			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",							'https://twitter.com/kawaisprite',		'6475F3']
 		];
+
+		// this is so unnessecary but i have no choice -Daninnocent
 		
 		for(i in pisspoop){
 			creditsStuff.push(i);
@@ -110,13 +171,14 @@ class CreditsState extends MusicBeatState
 		for (i in 0...creditsStuff.length)
 		{
 			var isSelectable:Bool = !unselectableCheck(i);
-			var optionText:Alphabet = new Alphabet(0, 70 * i, creditsStuff[i][0], !isSelectable, false);
+			var optionText:Alphabet = new Alphabet(-100, 70 * i, creditsStuff[i][0], true, true);
 			optionText.isMenuItem = true;
 			optionText.screenCenter(X);
-			optionText.yAdd -= 70;
-			if(isSelectable) {
-				optionText.x -= 70;
-			}
+			optionText.yAdd += 200;
+			// if(isSelectable) {
+				optionText.x -= 700;
+			// }
+			optionText.y += 100;
 			optionText.forceX = optionText.x;
 			//optionText.yMult = 90;
 			optionText.targetY = i;
@@ -129,7 +191,8 @@ class CreditsState extends MusicBeatState
 				}
 
 				var icon:AttachedSprite = new AttachedSprite('credits/' + creditsStuff[i][1]);
-				icon.xAdd = optionText.width + 10;
+				icon.xAdd = optionText.width + 100;
+				icon.yAdd = optionText.height - 130;
 				icon.sprTracker = optionText;
 	
 				// using a FlxGroup is too much fuss!
@@ -147,14 +210,17 @@ class CreditsState extends MusicBeatState
 		descBox.yAdd = -10;
 		descBox.alphaMult = 0.6;
 		descBox.alpha = 0.6;
-		add(descBox);
+		// add(descBox);
 
-		descText = new FlxText(50, FlxG.height + offsetThing - 25, 1180, "", 32);
+		descText = new FlxText(-400, FlxG.height + offsetThing - 25, 1180, "", 32);
 		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER/*, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK*/);
 		descText.scrollFactor.set();
 		//descText.borderSize = 2.4;
 		descBox.sprTracker = descText;
 		add(descText);
+
+		bg2 = new FlxSprite().loadGraphic(Paths.image('creditsmenu'));
+		add(bg2);
 
 		bg.color = getCurrentBGColor();
 		intendedColor = bg.color;
@@ -210,9 +276,9 @@ class CreditsState extends MusicBeatState
 			}
 			if (controls.BACK)
 			{
-				if(colorTween != null) {
-					colorTween.cancel();
-				}
+				// if(colorTween != null) {
+				// 	colorTween.cancel();
+				// }
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new MajinMenu());
 				quitting = true;
@@ -253,18 +319,18 @@ class CreditsState extends MusicBeatState
 				curSelected = 0;
 		} while(unselectableCheck(curSelected));
 
-		var newColor:Int =  getCurrentBGColor();
-		if(newColor != intendedColor) {
-			if(colorTween != null) {
-				colorTween.cancel();
-			}
-			intendedColor = newColor;
-			colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
-				onComplete: function(twn:FlxTween) {
-					colorTween = null;
-				}
-			});
-		}
+		// var newColor:Int =  getCurrentBGColor();
+		// if(newColor != intendedColor) {
+		// 	if(colorTween != null) {
+		// 		colorTween.cancel();
+		// 	}
+		// 	intendedColor = newColor;
+		// 	colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
+		// 		onComplete: function(twn:FlxTween) {
+		// 			colorTween = null;
+		// 		}
+		// 	});
+		// }
 
 		var bullShit:Int = 0;
 
@@ -283,9 +349,12 @@ class CreditsState extends MusicBeatState
 
 		descText.text = creditsStuff[curSelected][2];
 		descText.y = FlxG.height - descText.height + offsetThing - 60;
+		descText.y -= 200;
+
+		descText.x = -300;
 
 		if(moveTween != null) moveTween.cancel();
-		moveTween = FlxTween.tween(descText, {y : descText.y + 75}, 0.25, {ease: FlxEase.sineOut});
+		moveTween = FlxTween.tween(descText, {x : descText.x + 75}, 0.25, {ease: FlxEase.sineOut});
 
 		descBox.setGraphicSize(Std.int(descText.width + 20), Std.int(descText.height + 25));
 		descBox.updateHitbox();

@@ -35,6 +35,7 @@ class MajinMenu extends MusicBeatState {
 
     var bg:FlxBackdrop;
     var bg2:FlxBackdrop;
+    var bg3:FlxSprite;
 
     override function create() {
         #if desktop
@@ -74,6 +75,10 @@ class MajinMenu extends MusicBeatState {
             add(menuItem);
         }
         changeSelection();
+
+        bg3 = new FlxSprite().loadGraphic(Paths.image('menu logo thing'));
+		add(bg3);
+
         super.create();
 
 	var majinVersion:FlxText = new FlxText(5, FlxG.height - 44, 0, '', 12);
