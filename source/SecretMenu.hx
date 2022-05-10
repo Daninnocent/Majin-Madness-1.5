@@ -55,6 +55,7 @@ class SecretMenu extends MusicBeatState
 {
     var secretText:FlxUIInputText;
     var enteracodebitch:FlxText;
+    var hint:FlxText;
     var stuff:FlxSprite;
     var bg:FlxSprite;
     var whiteshit:FlxSprite;
@@ -80,6 +81,10 @@ class SecretMenu extends MusicBeatState
         enteracodebitch.setFormat(Paths.font("needlemouse-serif.ttf"), 100, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         enteracodebitch.screenCenter(X);
         add(enteracodebitch);
+
+        hint = new FlxText(-560, 690, FlxG.width, "HINT : GAMEFILES", 15);
+        hint.setFormat(Paths.font("vcr.ttf"), 15, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        add(hint);
 
         secretText = new FlxUIInputText(0, 500, 300, daSecret, 20);
         secretText.screenCenter(X);
@@ -203,6 +208,40 @@ class SecretMenu extends MusicBeatState
                     flashyWashy(true);
                     new FlxTimer().start(2, function(tmr:FlxTimer){
                         video = new FlxVideo(Paths.video('ricefieldss'));
+                        
+                        (video).finishCallback = function() {
+                            FlxG.sound.playMusic(Paths.music('freakyMenu'));
+                            LoadingState.loadAndSwitchState(new SecretMenu());
+                        }
+                    });
+                    new FlxTimer().start(2.1, function(tmr:FlxTimer)
+                    {
+                        invideomemes = true;
+                        inmemes = true;
+                    });
+                case "toast":
+                    FlxG.sound.music.stop();
+                    stopfuckingspamming = true;
+                    flashyWashy(true);
+                    new FlxTimer().start(2, function(tmr:FlxTimer){
+                        video = new FlxVideo(Paths.video('Stole_toast'));
+                        
+                        (video).finishCallback = function() {
+                            FlxG.sound.playMusic(Paths.music('freakyMenu'));
+                            LoadingState.loadAndSwitchState(new SecretMenu());
+                        }
+                    });
+                    new FlxTimer().start(2.1, function(tmr:FlxTimer)
+                    {
+                        invideomemes = true;
+                        inmemes = true;
+                    });
+                case "dudes":
+                    FlxG.sound.music.stop();
+                    stopfuckingspamming = true;
+                    flashyWashy(true);
+                    new FlxTimer().start(2, function(tmr:FlxTimer){
+                        video = new FlxVideo(Paths.video('send_dudes720p'));
                         
                         (video).finishCallback = function() {
                             FlxG.sound.playMusic(Paths.music('freakyMenu'));
