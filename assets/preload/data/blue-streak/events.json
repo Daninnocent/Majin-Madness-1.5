@@ -1,0 +1,79 @@
+{
+	"song": {
+		"speed": 3,
+		"stage": "MajinBG",
+		"player1": "bf",
+		"player2": "majinsonic",
+		"player3": null,
+		"events": [
+			[
+				0,
+				[
+					[
+						"Set Cam Zoom",
+						"0.615",
+						"0.15"
+					]
+				]
+			],
+			[
+				62337.6623376624,
+				[
+					[
+						"Set Cam Zoom",
+						"0.9",
+						"0.15"
+					]
+				]
+			],
+			[
+				81038.9610389611,
+				[
+					[
+						"Set Cam Zoom",
+						"0.615",
+						"0.15"
+					]
+				]
+			],
+			[
+				82597.4025974026,
+				[
+					[
+						"Blammed Lights",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				107532.467532468,
+				[
+					[
+						"Blammed Lights",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				140259.74025974,
+				[
+					[
+						"Set Cam Zoom",
+						"1.75",
+						"2"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": "noteSplashes",
+		"validScore": false,
+		"gfVersion": "gf",
+		"bpm": 154,
+		"arrowSkin": "",
+		"needsVoices": true,
+		"song": "blue-streak"
+	}
+}
