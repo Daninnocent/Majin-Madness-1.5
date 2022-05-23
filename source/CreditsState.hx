@@ -94,7 +94,7 @@ class CreditsState extends MusicBeatState
 			['Alberton',		'alberton',		'Animator																								',							'https://www.youtube.com/channel/UCPOB2_LwLkVzFZ-4rXomjWQ',	'444444'],
 			[''],
 			[''],
-			['Miguel',		'miguel',		'Artist/Original Director(Retired)',							'https://www.youtube.com/channel/UCnoahNIYnR8xxX-AsLmwM7g',	'444444'],
+			['Miguel',		'miguel',		'Artist/v1 Director(Retired)',							'https://www.youtube.com/channel/UCnoahNIYnR8xxX-AsLmwM7g',	'444444'],
 			[''],
 			[''],
 			['Cronix',		'cronix',		'Musician																								',							'https://www.youtube.com/channel/UCWh71odx3b4MnOG2ZrQbh0Q',	'444444'],
