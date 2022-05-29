@@ -38,6 +38,8 @@ class CreditsState extends MusicBeatState
 
 	var offsetThing:Float = -75;
 
+	var arrayThing:Array<FlxSprite> = [];
+
 	override function create()
 	{
 		#if desktop
@@ -184,6 +186,12 @@ class CreditsState extends MusicBeatState
 			//optionText.yMult = 90;
 			optionText.targetY = i;
 			grpOptions.add(optionText);
+            if (creditsStuff[i][0] == 'Alberton')
+			{
+				// optionText.alpha = 0;
+                optionText.visible = false;
+				createNamePng(optionText);
+			}
 
 			if(isSelectable) {
 				if(creditsStuff[i][5] != null)
@@ -227,6 +235,19 @@ class CreditsState extends MusicBeatState
 		intendedColor = bg.color;
 		changeSelection();
 		super.create();
+	}
+
+	function createNamePng(text:Alphabet = null, index:Int = 0) // swag -Endev
+	{
+		var albertonNamePng:AttachedSprite = new AttachedSprite("alberton", null, null, false);
+		albertonNamePng.sprTracker = text;
+		albertonNamePng.xAdd = (((Math.PI * 60) / 2) - 10);
+		albertonNamePng.yAdd = 25;
+		albertonNamePng.copyAlpha = true;
+		albertonNamePng.setGraphicSize(Std.int(albertonNamePng.width * 0.4));
+		albertonNamePng.updateHitbox();
+		arrayThing.push(albertonNamePng);
+		add(albertonNamePng);
 	}
 
 	var quitting:Bool = false;
@@ -341,10 +362,12 @@ class CreditsState extends MusicBeatState
 			bullShit++;
 
 			if(!unselectableCheck(bullShit-1)) {
-				item.alpha = 0.6;
-				if (item.targetY == 0) {
-					item.alpha = 1;
-				}
+				// if(creditsStuff[curSelected][0] != 'Alberton'){
+					item.alpha = 0.6;
+					if (item.targetY == 0) {
+						item.alpha = 1;
+					}
+				// }
 			}
 		}
 

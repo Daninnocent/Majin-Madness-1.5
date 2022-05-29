@@ -81,17 +81,21 @@ class MajinMenu extends MusicBeatState {
 
         super.create();
 
-	var majinVersion:FlxText = new FlxText(5, FlxG.height - 44, 0, '', 12);
+	var majinVersion:FlxText = new FlxText(5, FlxG.height - 24, 0, 'Majin Madness v' + versionOfMajin, 12);
         majinVersion.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         majinVersion.borderQuality = 1;
         majinVersion.borderSize = 1.50;
         add(majinVersion);
 
+        // changing smth - Endev
+
         #if sys
         var deviceName:String = Sys.systemName();
+
+        majinVersion.text += '\n' + deviceName + ' Release\n';
+        majinVersion.y = FlxG.height - 44;
         #end
 
-        majinVersion.text += 'Majin Madness v' + versionOfMajin + '\n' + deviceName + ' Release\n';
     }
 
     override function update(elapsed:Float) {
@@ -182,6 +186,8 @@ class MajinMenu extends MusicBeatState {
             }
             continue;
         }
+
+        // this is unused lmao -Endev
         for (i in 0...menuItemsArray.length) {
             var item:Dynamic = menuItemsArray[i];
             if (item.animation.curAnim != null) {
