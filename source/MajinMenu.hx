@@ -27,7 +27,7 @@ class MajinMenu extends MusicBeatState {
     var menuItemsArray:Array<FlxSprite>;
     var pos:FlxPoint = new FlxPoint();
 
-    public static var versionOfMajin:String = '2.0';
+    public static var versionOfMajin:String = '1.5';
 
     // public static var isSecretMenu:Bool = false;
 
