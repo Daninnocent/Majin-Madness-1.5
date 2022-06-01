@@ -3224,6 +3224,21 @@ class PlayState extends MusicBeatState
 						CustomFadeTransition.nextCamera = null;
 					}
 					MusicBeatState.switchState(new StoryMenuState());
+					
+					if(Paths.formatToSongPath(SONG.song) == 'entertainment')
+					{
+                        FlxG.save.data.majinweekdone = true;
+					}
+
+					if(Paths.formatToSongPath(SONG.song) == 'starlight')
+					{
+                        FlxG.save.data.beatenStarlight = true;
+					}
+
+					if(Paths.formatToSongPath(SONG.song) == 'reflection')
+					{
+                        FlxG.save.data.beatenReflection = true;
+					}
 
 					// if ()
 					if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {
@@ -3233,22 +3248,6 @@ class PlayState extends MusicBeatState
 						{
 							Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
 						}
-						
-						
-					if(curSong == 'entertainment')
-					{
-                        FlxG.save.data.majinweekdone = true;
-					}
-
-					if(curSong == 'starlight')
-					{
-                        FlxG.save.data.beatenStarlight = true;
-					}
-
-					if(curSong == 'reflection')
-					{
-                        FlxG.save.data.beatenReflection = true;
-					}
 
 						FlxG.save.data.weekCompleted = StoryMenuState.weekCompleted;
 						FlxG.save.flush();
