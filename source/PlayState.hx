@@ -1,4 +1,4 @@
-package;
+﻿package;
 
 import flixel.graphics.FlxGraphic;
 #if desktop
@@ -3225,7 +3225,7 @@ class PlayState extends MusicBeatState
 					}
 					MusicBeatState.switchState(new StoryMenuState());
 					
-					if(Paths.formatToSongPath(SONG.song) == 'entertainment')
+					if(Paths.formatToSongPath(SONG.song) == 'blue-streak')
 					{
                         FlxG.save.data.majinweekdone = true;
 					}
