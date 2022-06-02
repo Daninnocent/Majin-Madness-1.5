@@ -87,32 +87,35 @@ class CreditsState extends MusicBeatState
 			['Majin Madness Team'],
 			[''],
 			[''],
-			['Plusardx',		'plusardx',		'          Director, Charter																								',							'https://www.youtube.com/channel/UC79hR4wLFO1fORZPaKY1XAw',	'444444'],
+			['Plusardx',			'plusardx',		'Director, Charter',											'https://www.youtube.com/channel/UC79hR4wLFO1fORZPaKY1XAw',		'444444'],
 			[''],
 			[''],
-			['Abador',		'abador',		'Charter																								',							'https://www.youtube.com/channel/UCpMviYnJbluA1IfMOcJffDg',	'444444'],
+			['Abador',				'abador',		'Charter',														'https://www.youtube.com/channel/UCpMviYnJbluA1IfMOcJffDg',		'444444'],
 			[''],
 			[''],
-			['Alberton',		'alberton',		'              Co-Director, Animator																								',							'https://www.youtube.com/channel/UCPOB2_LwLkVzFZ-4rXomjWQ',	'444444'],
+			['Alberton',			'alberton',		'Co-Director, Animator',										'https://www.youtube.com/channel/UCPOB2_LwLkVzFZ-4rXomjWQ',		'444444'],
 			[''],
 			[''],
-			/*['Miguel',		'miguel',		'Artist/v1 Director(Retired)',							'https://www.youtube.com/channel/UCnoahNIYnR8xxX-AsLmwM7g',	'444444'],
-			[''],
-			[''],*/
-                        // Bye miguel :(
-			['Cronix',		'cronix',		'Musician																								',							'https://www.youtube.com/channel/UCWh71odx3b4MnOG2ZrQbh0Q',	'444444'],
-			[''],
-			[''],
-			['VillArts',		'villagerhum',		'Musician																								',							'https://www.youtube.com/channel/UC52QcuYSAdeRks0WtTXSO6A',	'444444'],
+			//['Miguel',		'miguel',		'Artist/v1 Director(Retired)',										'https://www.youtube.com/channel/UCnoahNIYnR8xxX-AsLmwM7g',		'444444'],
+			//[''],
+			//[''],
+			// Bye miguel :(
+			['Cronix',				'cronix',		'Musician',														'https://www.youtube.com/channel/UCWh71odx3b4MnOG2ZrQbh0Q',		'444444'],
 			[''],
 			[''],
-			['Danly',		'danly',		'Musician																								',							'https://www.youtube.com/channel/UCM0BnEgf9acQc64rLqUfZ_A',	'444444'],
+			['VillArts',			'villagerhum',	'Musician',														'https://www.youtube.com/channel/UC52QcuYSAdeRks0WtTXSO6A',		'444444'],
 			[''],
 			[''],
-			['Daninnocent',		'daninnocent',		'Coder																								',							'https://www.youtube.com/channel/UCPddB_emjwVerq1RxsJLfDQ',	'444444'],
+			['Danly',				'danly',		'Musician',														'https://www.youtube.com/channel/UCM0BnEgf9acQc64rLqUfZ_A',		'444444'],
 			[''],
 			[''],
-			['EnDev',		'endevgtnv',		'Coder																								',							'https://www.youtube.com/channel/UCnw5m41Yud2t7uoI9NXQj2g',	'444444'],
+			['Daninnocent',			'daninnocent',	'Coder',														'https://www.youtube.com/channel/UCPddB_emjwVerq1RxsJLfDQ',		'444444'],
+			[''],
+			[''],
+			['EnDev',				'endevgtnv',	'Coder',														'https://www.youtube.com/channel/UCnw5m41Yud2t7uoI9NXQj2g',		'444444'],
+			[''],
+			[''],
+			['Saw (M.A. Jigsaw)',	'saw',		'Android Port Coder',												'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
 			[''],
 			[''],
 			['Psych Engine Team'],
@@ -234,6 +237,11 @@ class CreditsState extends MusicBeatState
 		bg.color = getCurrentBGColor();
 		intendedColor = bg.color;
 		changeSelection();
+
+		#if android
+		addVirtualPad(UP_DOWN, A_B);
+		#end
+		
 		super.create();
 	}
 

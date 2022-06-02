@@ -79,6 +79,10 @@ class MajinMenu extends MusicBeatState {
         bg3 = new FlxSprite().loadGraphic(Paths.image('menu logo thing'));
 		add(bg3);
 
+        #if android
+        addVirtualPad(UP_DOWN, A_B);
+        #end
+
         super.create();
 
 	var majinVersion:FlxText = new FlxText(5, FlxG.height - 24, 0, 'Majin Madness v' + versionOfMajin, 12);

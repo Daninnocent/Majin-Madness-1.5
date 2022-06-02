@@ -27,7 +27,11 @@ import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+#if android
+import android.flixel.FlxButton;
+#else
 import flixel.ui.FlxButton;
+#end
 import flixel.ui.FlxSpriteButton;
 import flixel.util.FlxColor;
 import haxe.format.JsonParser;
@@ -87,6 +91,7 @@ class SecretMenu extends MusicBeatState
         add(hint);
 
         secretText = new FlxUIInputText(0, 500, 300, daSecret, 20);
+        secretText.focusGained = () -> FlxG.stage.window.textInputEnabled = true;
         secretText.screenCenter(X);
         add(secretText);
 
@@ -97,7 +102,9 @@ class SecretMenu extends MusicBeatState
 
         add(whiteshit);
 
-        
+        #if android
+        addVirtualPad(NONE, B);
+        #end
 
         super.create();
     }
@@ -127,6 +134,7 @@ class SecretMenu extends MusicBeatState
         }
 
         if(FlxG.keys.justPressed.ENTER && !inmemes && !stopfuckingspamming){
+            FlxG.stage.window.textInputEnabled = false;
             switch(daSecret.toLowerCase()){
                 // case "insertrandomshithere":
                 //     stopfuckingspamming = true;
@@ -329,9 +337,11 @@ class SecretMenu extends MusicBeatState
 
         if(FlxG.keys.justPressed.ENTER && stopfuckingspamming && inmemes)
         {
+            #if desktop
             if(invideomemes){
             video.onVLCComplete();
             }
+            #end
             FlxG.sound.playMusic(Paths.music('freakyMenu'));
             LoadingState.loadAndSwitchState(new SecretMenu());
         } 
