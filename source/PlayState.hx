@@ -3239,16 +3239,19 @@ class PlayState extends MusicBeatState
 					if(Paths.formatToSongPath(SONG.song) == 'blue-streak')
 					{
                         FlxG.save.data.majinweekdone = true;
+						FlxG.save.flush();						
 					}
 
 					if(Paths.formatToSongPath(SONG.song) == 'starlight')
 					{
                         FlxG.save.data.beatenStarlight = true;
+						FlxG.save.flush();
 					}
 
 					if(Paths.formatToSongPath(SONG.song) == 'reflection')
 					{
                         FlxG.save.data.beatenReflection = true;
+						FlxG.save.flush();
 					}
 
 					// if ()

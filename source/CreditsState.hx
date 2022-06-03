@@ -115,7 +115,7 @@ class CreditsState extends MusicBeatState
 			['EnDev',				'endevgtnv',	'Coder',														'https://www.youtube.com/channel/UCnw5m41Yud2t7uoI9NXQj2g',		'444444'],
 			[''],
 			[''],
-			['Saw (M.A. Jigsaw)',	'saw',		'Android Port Coder',												'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
+			['Saw  M.A. Jigsaw',	'saw',		'Android Port Coder',												'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
 			[''],
 			[''],
 			['Psych Engine Team'],
@@ -196,6 +196,13 @@ class CreditsState extends MusicBeatState
 				createNamePng(optionText);
 			}
 
+			if (creditsStuff[i][0] == 'Saw  M.A. Jigsaw')
+			{
+				// optionText.alpha = 0;
+                optionText.visible = false;
+				createNamePng(optionText,0,true);
+			}
+
 			if(isSelectable) {
 				if(creditsStuff[i][5] != null)
 				{
@@ -245,8 +252,9 @@ class CreditsState extends MusicBeatState
 		super.create();
 	}
 
-	function createNamePng(text:Alphabet = null, index:Int = 0) // swag -Endev
+	function createNamePng(text:Alphabet = null, index:Int = 0, ?jigsaw:Bool = false) // swag -Endev
 	{
+		if (!jigsaw){
 		var albertonNamePng:AttachedSprite = new AttachedSprite("alberton", null, null, false);
 		albertonNamePng.sprTracker = text;
 		albertonNamePng.xAdd = (((Math.PI * 60) / 2) - 10);
@@ -256,6 +264,17 @@ class CreditsState extends MusicBeatState
 		albertonNamePng.updateHitbox();
 		arrayThing.push(albertonNamePng);
 		add(albertonNamePng);
+		} else {
+			var jigsawNamePng:AttachedSprite = new AttachedSprite("jigsaw", null, null, false);
+			jigsawNamePng.sprTracker = text;
+			jigsawNamePng.xAdd = (((Math.PI * 60) / 2) - 10);
+			jigsawNamePng.yAdd = 25;
+			jigsawNamePng.copyAlpha = true;
+			jigsawNamePng.setGraphicSize(Std.int(jigsawNamePng.width * 0.4));
+			jigsawNamePng.updateHitbox();
+			arrayThing.push(jigsawNamePng);
+			add(jigsawNamePng);
+		}
 	}
 
 	var quitting:Bool = false;
