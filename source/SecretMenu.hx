@@ -103,7 +103,7 @@ class SecretMenu extends MusicBeatState
         add(whiteshit);
 
         #if android
-        addVirtualPad(NONE, B);
+        addVirtualPad(NONE, A_B);
         #end
 
         super.create();
@@ -133,7 +133,7 @@ class SecretMenu extends MusicBeatState
             }
         }
 
-        if(FlxG.keys.justPressed.ENTER && !inmemes && !stopfuckingspamming){
+        if(FlxG.keys.justPressed.ENTER #if android || _virtualpad.buttonA.justPressed #end && !inmemes && !stopfuckingspamming){
             FlxG.stage.window.textInputEnabled = false;
             switch(daSecret.toLowerCase()){
                 // case "insertrandomshithere":
