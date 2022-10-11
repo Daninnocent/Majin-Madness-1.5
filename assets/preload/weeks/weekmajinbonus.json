@@ -1,0 +1,31 @@
+{
+	"storyName": "Fun Fun Fun Fun Fun Fun",
+	"hideFreeplay": false,
+	"weekBackground": "MajinBG",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "weekinfinite",
+	"startUnlocked": false,
+	"hideStoryMode": true,
+        "difficulties": "fun",
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"What U Want",
+			"icon-majin",
+			[
+				75,
+				80,
+				255
+			]
+		]
+	],
+	"weekName": "weekinfinite"
+}
