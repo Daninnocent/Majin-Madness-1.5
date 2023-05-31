@@ -200,7 +200,7 @@ class MajinMenu extends MusicBeatState
 		{
 			if (spr.ID == curSelected)
 			{
-				spr.animation.play('select');
+				spr.animation.play('select', true);
 				spr.x = FlxG.width / 2 - 40;
 			}
 			else
