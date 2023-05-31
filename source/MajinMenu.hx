@@ -124,24 +124,24 @@ class MajinMenu extends MusicBeatState
 		{
 			if (controls.UI_UP_P)
 			{
-                changeSelection(-1);
-                FlxG.sound.play(Paths.sound('scrollMenu'));
-            }
+				FlxG.sound.play(Paths.sound('scrollMenu'));
+				changeSelection(-1);
+			}
 
-            if (controls.UI_DOWN_P)
+			if (controls.UI_DOWN_P)
 			{
-                changeSelection(1);
-                FlxG.sound.play(Paths.sound('scrollMenu'));
-            }
+				FlxG.sound.play(Paths.sound('scrollMenu'));
+				changeSelection(1);
+			}
 
-            if (controls.BACK) 
+			if (controls.BACK)
 			{
-				goingback = true;
-                FlxG.switchState(new TitleState());
-                FlxG.sound.play(Paths.sound('cancelMenu'));
-            }
+				nospamming = true;
+				FlxG.sound.play(Paths.sound('cancelMenu'));
+				MusicBeatState.switchState(new TitleState());
+			}
 
-            if (controls.ACCEPT) 
+			if (controls.ACCEPT)
 			{
 				openNextState();
 			}
@@ -167,17 +167,17 @@ class MajinMenu extends MusicBeatState
 			switch (menuList[curSelected])
 			{
 				case 'story_mode':
-					FlxG.switchState(new StoryMenuState());
+					MusicBeatState.switchState(new StoryMenuState());
 				case 'freeplay':
-					FlxG.switchState(new FreeplayState());
+					MusicBeatState.switchState(new FreeplayState());
 				case 'credits':
-					FlxG.switchState(new CreditsState());
+					MusicBeatState.switchState(new CreditsState());
 				case 'awards':
-					FlxG.switchState(new AchievementsMenuState());
+					MusicBeatState.switchState(new AchievementsMenuState());
 				case 'options':
-					FlxG.switchState(new OptionsState());
+					MusicBeatState.switchState(new OptionsState());
 				case 'extras':
-					FlxG.switchState(new SecretMenu());
+					MusicBeatState.switchState(new SecretMenu());
 			}
 		});
 
