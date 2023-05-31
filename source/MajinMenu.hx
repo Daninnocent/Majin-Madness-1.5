@@ -50,7 +50,7 @@ class MajinMenu extends MusicBeatState
 		bg.screenCenter(X);
 		add(bg);
 
-		bg2 = new FlxBackdrop(Paths.image('purpleStuff'), XY, 0, 0);
+		bg2 = new FlxBackdrop(Paths.image('purplestuff'), XY, 0, 0);
 		bg2.velocity.set(200, 110);
 		bg2.updateHitbox();
 		bg2.alpha = 0;
