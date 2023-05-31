@@ -94,6 +94,10 @@ class MajinMenu extends MusicBeatState
 		versionText.y -= 20;
 		#end
 
+		#if android
+		addVirtualPad(UP_DOWN, A_B);
+		#end
+
 		changeSelection();
 
 		super.create();
