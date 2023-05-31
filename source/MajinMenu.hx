@@ -136,7 +136,7 @@ class MajinMenu extends MusicBeatState
 
 			if (controls.BACK)
 			{
-				nospamming = true;
+				goingback = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
 			}
