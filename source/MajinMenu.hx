@@ -162,6 +162,14 @@ class MajinMenu extends MusicBeatState
 		var daItem = grpMenus.members[curSelected];
 		nospamming = true;
 
+		grpMenus.forEach(function(spr:FlxSprite)
+		{
+			if (daItem.ID != spr.ID)
+			{
+				FlxTween.tween(spr, {alpha: 0}, 0.4, {ease: FlxEase.quadInOut});
+			}
+		});
+
 		FlxFlicker.flicker(daItem, 1, 0.06, false, false, function(flick:FlxFlicker)
 		{
 			switch (menuList[curSelected])
