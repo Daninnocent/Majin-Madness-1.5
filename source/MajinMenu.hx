@@ -191,7 +191,7 @@ class MajinMenu extends MusicBeatState
 
 		new FlxTimer().start(0.06, function(tmr:FlxTimer)
 		{
-			nospamming = false;
+			stopspamming = false;
 		});
 	}
 
