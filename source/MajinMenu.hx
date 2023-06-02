@@ -103,7 +103,7 @@ class MajinMenu extends MusicBeatState
 		super.create();
 	}
 
-	var nospamming:Bool = false;
+	var stopspamming:Bool = false;
 	var goingback:Bool = false;
 
 	override function update(elapsed:Float)
@@ -120,7 +120,7 @@ class MajinMenu extends MusicBeatState
 			FlxTween.tween(bg2, {alpha: 0}, 3, {ease: FlxEase.circOut});
 		}
 
-		if (!nospamming && !goingback)
+		if (!stopspamming && !goingback)
 		{
 			if (controls.UI_UP_P)
 			{
@@ -160,7 +160,7 @@ class MajinMenu extends MusicBeatState
 
 		FlxG.sound.play(Paths.sound('confirmMenu'));
 		var daItem = grpMenus.members[curSelected];
-		nospamming = true;
+		stopspamming = true;
 
 		grpMenus.forEach(function(spr:FlxSprite)
 		{
