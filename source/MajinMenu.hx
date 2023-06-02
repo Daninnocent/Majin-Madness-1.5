@@ -90,7 +90,7 @@ class MajinMenu extends MusicBeatState
 		// Sys.systemName() is broken for mobile users!
 		var deviceName:String = System.platformName; // Sys.systemName();
 
-		versionText.text = '\n' + deviceName + " " + 'Released' + "\n";
+		versionText.text += '\n' + deviceName + " " + 'Released' + "\n";
 		versionText.y -= 20;
 		#end
 
