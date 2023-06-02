@@ -34,7 +34,7 @@ class MajinMenu extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
-		if (FlxG.save.data.majinWeekdone)
+		if (FlxG.save.data.majinweekdone)
 		{
 			menuList.push('extras');
 		}
